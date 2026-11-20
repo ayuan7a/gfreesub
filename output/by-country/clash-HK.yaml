@@ -5,6 +5,15 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - xiaohe
+  type: vless
+  server: 146.75.57.111
+  port: 443
+  uuid: 0632a4e7-d55a-4d17-a47b-9958b471be90
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn.akamai.steamstatic.com
+- name: 🇭🇰 中国香港 (Hong Kong) 02 - xiaohe
   type: ss
   server: 213.176.92.148
   port: 40647
@@ -17,11 +26,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 02 - xiaohe
 rules:
 - MATCH,PROXIES
